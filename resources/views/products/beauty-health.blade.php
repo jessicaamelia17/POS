@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Beauty & Health</title>
-</head>
-<body>
-    <h1>Kategori: Beauty & Health</h1>
-    <ul>
-        @foreach($products as $product)
-            <li>{{ $product['name'] }} - Rp{{ number_format($product['price'], 0, ',', '.') }}</li>
-        @endforeach
-    </ul>
-    
-</body>
-</html>
+@extends('layouts.layout')
+
+@section('title', 'Beauty Health')
+
+@section('content')
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Beauty & Health</h2>
+        
+        <ul class="list-group">
+            @foreach($products as $product)
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{ $product['name'] }} 
+                    <span class="badge bg-primary">Rp{{ number_format($product['price'], 0, ',', '.') }}</span>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+@endsection
